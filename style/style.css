@@ -1,0 +1,9 @@
+.card-text {
+  color: blueviolet;
+  font-weight: bolder;
+}
+
+.question-card {
+  border-color: orangered;
+  width: 18rem;
+}

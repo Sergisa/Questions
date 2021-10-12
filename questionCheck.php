@@ -1,6 +1,7 @@
 <?php
-if($_POST['answer'] == 3){
-    echo "Good answer";
+include 'functions.php';
+if(checkQuestion($_GET['id'], $_POST['answer'])){
+    echo "Вы правильно ответили на вопрос";
 }else{
-    echo "Bad answer";
+    echo "Вы не правильно ответили на вопрос";
 }
