@@ -1,0 +1,24 @@
+{
+  "name": "questions",
+  "version": "1.0.0",
+  "description": "**questions.json** содержит набор вопросов JSON формате   **index.php** показывает вопрос   **functions.php** содержит механику (дать вопрос, проверить ответ, забрать все вопросы) **questionCheck.php** проверяет данный ответ **scss/style.scss** содержит файлы из которых сгенерируется CSS   **style/style.css** содержит сгенерированные стили",
+  "main": " ",
+  "scripts": {
+    "compile": "node-sass --output-style expanded scss/mdb.free.scss style/style.css",
+    "compile-min": "node-sass --output-style compressed scss/mdb.free.scss style/style.min.css",
+    "css": "npm run compile && npm run compile-min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergisa/Questions.git"
+  },
+  "author": "Sergisa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergisa/Questions/issues"
+  },
+  "homepage": "https://github.com/Sergisa/Questions#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
