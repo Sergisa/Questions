@@ -8,5 +8,10 @@
     "id": 3,
     "question": "Третий вопрос",
     "answer": "1"
+  },
+  {
+    "id": 4,
+    "question": "Fourth вопрос",
+    "answer": ["1", "one", "Один"]
   }
 ]

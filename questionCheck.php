@@ -1,7 +1,7 @@
 <?php
 include 'functions.php';
 if(checkQuestion($_GET['id'], $_POST['answer'])){
-    echo "Вы правильно ответили на вопрос";
+    header("Location: index.php?q=" . $_GET['id']+1);
 }else{
-    echo "Вы не правильно ответили на вопрос";
+    header("Location: fail.php");
 }

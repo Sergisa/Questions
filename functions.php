@@ -9,15 +9,16 @@ function getQuestions($file = "questions.json")
     fclose($f);
     return json_decode($contents);
 }
+
 function getQuestion($id)
 {
-    $actualQuestion = null;
+    //$actualQuestion = null;
     foreach (getQuestions() as $question) {
         if ($question->id == $id) {
-            $actualQuestion = $question;
+            return $question;
         }
     }
-    return $actualQuestion;
+    //return $actualQuestion;
 }
 
 function getQuestionText($id)
@@ -25,17 +26,13 @@ function getQuestionText($id)
     return getQuestion($id)->question;
 }
 
-function checkQuestion($id, $answer){
-    /*if(getQuestion($id)->answer == $answer){
-        return true;
-    }else{
-        return false;
-    }*/
-
-    /*if(getQuestion($id)->answer == $answer){
-        return true;
+function checkQuestion($id, $answer)
+{
+    return is_array(getQuestion($id)->answer)
+        ? in_array($answer, getQuestion($id)->answer)
+        : getQuestion($id)->answer == $answer;
+    /*if (is_array(getQuestion($id)->answer)) {
+        return in_array($answer, getQuestion($id)->answer);
     }
-    return false;*/
-
-    return getQuestion($id)->answer == $answer;
+    return getQuestion($id)->answer == $answer;*/
 }

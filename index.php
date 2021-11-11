@@ -27,7 +27,7 @@ include 'functions.php';
                         }
                         ?>
                         <input type="text" name="answer">
-
+                        <input type="hidden" >
                     </p>
                     <input type="submit" value="Ответить" class="float-end btn btn-primary"/>
                 </div>
