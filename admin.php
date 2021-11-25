@@ -17,14 +17,13 @@ include 'functions.php';
     <div class="col-md-8 mx-auto">
         <ul class="list-group">
             <?php
-            foreach (getQuestions() as $question){
+            foreach (getQuestions() as $question) {
                 echo "<a href='#' class='list-group-item list-group-item-action' aria-current='true'>
                     <div class='d-flex w-100 justify-content-between'>
                       <h5 class='mb-1'>{$question->question}</h5>
                       <small class='text-black-50'>3 days ago</small>
                     </div>
-                    <p class='mb-1'>Some placeholder content in a paragraph.</p>
-                    <span class='badge rounded-pill bg-primary'>Primary</span>
+                    <button class='btn btn-outline-primary delete' id='{$question->id}'>Удалить</button>
                   </a>";
             }
             ?>
@@ -33,4 +32,18 @@ include 'functions.php';
 </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $('.delete').click(function(){
+        var clickedButton = $(this);
+        var clickedButtonId = clickedButton.attr('id');
+        console.log("clickedButtonJqueryObject", clickedButton);
+        $.get( "removeQuestion.php", {
+            id: clickedButtonId
+        }, function( data ) {
+            console.log( clickedButtonId );
+            console.log(data);
+        });
+    })
+</script>
 </html>

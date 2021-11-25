@@ -10,15 +10,31 @@ function getQuestions($file = "questions.json")
     return json_decode($contents);
 }
 
+function writeQuestions($data, $file = "questions.json")
+{
+    $f = fopen($file, 'w+');
+    fwrite($f, json_encode($data));
+    fclose($f);
+}
+
+function removeQuestion($data, $id)
+{
+    $resultArray=[];
+    foreach ($data as $question){
+        if($question->id != $id){
+            $resultArray[] = $question;
+        }
+    }
+    return $resultArray;
+}
+
 function getQuestion($id)
 {
-    //$actualQuestion = null;
     foreach (getQuestions() as $question) {
         if ($question->id == $id) {
             return $question;
         }
     }
-    //return $actualQuestion;
 }
 
 function getQuestionText($id)
