@@ -13,19 +13,19 @@ function getQuestions($file = "questions.json")
 function writeQuestions($data, $file = "questions.json")
 {
     $f = fopen($file, 'w+');
-    fwrite($f, json_encode($data));
+    fwrite($f, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     fclose($f);
 }
 
-function removeQuestion($data, $id)
+function removeQuestion($id)
 {
-    $resultArray=[];
-    foreach ($data as $question){
-        if($question->id != $id){
+    $resultArray = [];
+    foreach (getQuestions() as $question) {
+        if ($question->id != $id) {
             $resultArray[] = $question;
         }
     }
-    return $resultArray;
+    writeQuestions($resultArray);
 }
 
 function getQuestion($id)
